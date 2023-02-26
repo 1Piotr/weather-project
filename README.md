@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# Getting Started with Create React App 
+Overall all functionality ?I am planning to achieve
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+1. User can get a current weather and a forcast for current localization
 
-## Available Scripts
+2. User can get a current weather and a forcast for a chosen localization
+For the weather API to work it has to receive the coorect geoloaction
+express in longitude and latitude. As user is very unlikely to be able to search 
+by these paramaters I need to find a way  to convert place name into geolocation data.
+Luckily weather API provides API call for doing so.
+The API allowing to search directly by geographical names is no longer supportted. Similarly Reverse
+Geo API should be used when we want to retrieve name of the place.
+http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid={API key}
 
-In the project directory, you can run:
+Here is another problem there are number of places with the same name. E.g Lagos- Nigeria,
+Lagos -Portugal
+I am going to tackle this problem by allowing user to choose the right name from the list.
+so I'm going to use <Select>
+Once user hit Search I want <Select> to be automatically open, I manage to solve it by feeding the lenght of the 
+array into "size" attiubute. So behaviur of <select> depends on state.
 
-### `npm start`
+Creating new componenent ToggleUnits it will allow to switch between metric and imperial system. Had to lift the
+state to parent component as it will be used by other child components
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Creating current location component decided not to use useEffect because I dont want to searching for local weather on first reneder.Once I lift local state to parent with handleCurrentStateChange function cooridantes state will update and Current weather component and Forcast will render. Similar approach to lift localName state and update geoName
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+I want alse geographical names to be displayed. For current location i need to use reverse geoAPI
+http://api.openweathermap.org/geo/1.0/reverse?lat={lat}&lon={lon}&limit={limit}&appid={API key}
+There is a problem as I dont want to fetch data on first render I need to condition it on state isMounted
 
-### `npm test`
+Decided to use image provided by the API asa background image insted of using it to create a seperate component.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Overall I could alse add local time but it is not needed to overall app functionality.
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Used flexbox and media queries to make the app mobile responsive.

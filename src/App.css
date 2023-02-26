@@ -1,38 +1,144 @@
-.App {
-  text-align: center;
+:root {
+  --my-pink: #f0c7c7;
+  --my-darkPink:#572626;
 }
+.app {
+  max-height: 100vh;
+  display:flex;
+  flex-direction: column;
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  flex-wrap: nowrap;
 }
+.app > div {
+  min-width:100%;
+ 
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.main {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  flex-wrap: nowrap;
+  color:black;
+  width:100vw;
+  max-height:60vh;
+  
+}
+.forcast{
+  max-height:40vh;
+}
+.currentWeather {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly !important;
+  width:100%;
+  list-style: none;
+}
+.forcastList {
+  margin:0px;
+  padding-left:0px;
+  
+  padding-bottom:16px;
+  list-style: none;
+  display:flex;
+  overflow-x:auto;
+  
+}
+.myButtons {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+ul::-webkit-scrollbar {
+  width: 15px;
+  height:10px;
 }
 
-.App-link {
-  color: #61dafb;
+ul::-webkit-scrollbar-track {
+  background-color: var(--my-pink);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+ul::-webkit-scrollbar-thumb {
+  background-color:var(--my-darkPink) ;
+  border-radius: 20px;
+  border: 3px solid var(--my-darkPink);
+}
+
+.selectionForm > * {
+
+  width:400px
+
+}
+
+select, input {
+  width:85%;
+}
+
+
+.forcastList >li {
+  border: 1px solid var(--my-pink);
+  width:65px;
+  font-size: 0.7rem;
+  text-align: center;
+  margin-left:2px;
+  border-radius: 2px;
+  box-shadow: 1px 5px var(--my-pink);
+}
+
+.myButton, .myInput {
+  background-color: white;
+  color:var(--my-darkPink);
+  border: 2px solid var(--my-pink);
+  border-radius: 5px;
+  height:35px;
+}
+.myInput {
+  border-right: none !important;
+  border-radius: 5px 0px 0px 5px !important;
+  
+
+}
+.myInput::placeholder {
+  color: var(--my-darkPink)
+}
+.mySearchButton {
+  height:35px;
+  border-radius: 0px 5px 5px 0px;
+  background-color: white;
+  color:var(--my-darkPink);
+  border: 2px solid var(--my-pink);
+  width:15%;
+  
+}
+
+h1, h2 {
+  text-align: center;
+  font-weight: 100;
+  color:black
+}
+.forcast  h2 {
+  margin-top:0;
+}
+
+/*media queries*/
+@media screen and (max-width: 400px) {
+  .selectionForm > * {
+    width:100%
   }
-  to {
-    transform: rotate(360deg);
+  .currentWeather {
+    flex-direction: column;
+    align-content: center;
+    text-align: center;
+  }
+  .currentWeather >* {
+    padding:0;
+    margin:5px;
+  }
+ .forcast  h2 {
+    margin-top:0;
   }
 }
+
