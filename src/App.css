@@ -132,6 +132,7 @@ h1, h2 {
     flex-direction: column;
     align-content: center;
     text-align: center;
+    flex-wrap:nowrap;
    
   }
   .app {
