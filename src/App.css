@@ -8,6 +8,7 @@
   display:flex;
   flex-direction: column;
   flex-wrap: nowrap;
+  
 }
 .app > div {
   min-width:100%;
@@ -17,8 +18,8 @@
     font-weight: 100;
     color:black
   }
-/*the app is divided into main and forecast*/
-
+/*the app is divided into main and forecast i need to put forecast as seperate container
+otherwise its overflow property does not work*/
 
 .main {
   display: flex;
@@ -28,6 +29,7 @@
   flex-wrap: nowrap;
   color:black;
   width:100vw;
+  
   
   
 }
