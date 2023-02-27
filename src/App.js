@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import axios from 'axios'
+
 import Weather from './components/Weather'
 import Forecast from './components/Forecast'
 import ToggleUnits from './components/ToggleUnits'
@@ -17,7 +17,7 @@ const App = () => {
   const [unit, setUnit] = useState('metric')
   const [value, setValue] = useState('')
   const [geoName, setGeoname] =useState([])
-
+  const [isMounted, setIsmounted] =useState(false)
 
   const handleChange = (event) => {
         setValue(event.target.value)
@@ -35,16 +35,21 @@ const App = () => {
 
   const APIkey ='d2c51efb1a6ca0dbf4e522543600e2a3'
   
-    useEffect(() => {
-        axios
-          .get(`https://api.openweathermap.org/geo/1.0/direct?q=
-          ${city}&limit=5&appid=${APIkey}`)
-          .then(response => {
-          setLocations(response.data)
-          console.log(locations)
-          })
-    
-    }, [city])
+  useEffect(() => {
+    if (isMounted) {
+    fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${APIkey}`)
+      .then(response => response.json())
+      .then(data => {
+        setLocations(data);
+        console.log(locations);
+      })
+      .catch(error => {
+        console.error(error);
+      });}
+      else {
+        setIsmounted(true)
+      }
+  }, [city]);
 // i want the list of options to automatically open
    
   

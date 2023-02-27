@@ -9,7 +9,7 @@ const CurrentLocation = ({onCoordinatesChange, onLocalNameChange, APIkey}) => {
         useEffect(() => {
             if (isMounted) {
             axios
-              .get(`https://api.openweathermap.org/geo/1.0/reverse?lat=${localCoordiantes[0]}&lon=${localCoordiantes[1]}&limit=1&appid=${APIkey}`)
+              .get(`http://api.openweathermap.org/geo/1.0/reverse?lat=${localCoordiantes[0]}&lon=${localCoordiantes[1]}&limit=1&appid=${APIkey}`)
               .then(response => {
                 setLocalName()
               console.log(response.data[0])
