@@ -37,7 +37,7 @@ const App = () => {
   
   useEffect(() => {
     if (isMounted) {
-    fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${APIkey}`)
+    fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${APIkey}`)
       .then(response => response.json())
       .then(data => {
         setLocations(data);
