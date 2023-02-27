@@ -10,8 +10,9 @@ useEffect(() => {
       .then(response => {
         console.log(response.data)
         setWeather(response.data)
-      
       })
+      .catch(error => {
+        console.error(error)})
        }, [coordinates, unit])
       
        return (

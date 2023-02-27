@@ -2,18 +2,24 @@
   --my-pink: #f0c7c7;
   --my-darkPink:#572626;
 }
+
 .app {
   max-height: 100vh;
   display:flex;
   flex-direction: column;
-
   flex-wrap: nowrap;
 }
 .app > div {
   min-width:100%;
- 
-
 }
+  h1, h2 {
+    text-align: center;
+    font-weight: 100;
+    color:black
+  }
+/*the app is divided into main and forecast*/
+
+
 .main {
   display: flex;
   flex-direction: column;
@@ -25,69 +31,6 @@
   
   
 }
-.forcast{
- 
-}
-.currentWeather {
-  display:flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly !important;
-  width:100%;
-  list-style: none;
-}
-.forcastList {
-  margin:0px;
-  padding-left:0px;
-  
-  padding-bottom:16px;
-  list-style: none;
-  display:flex;
-  overflow-x:auto;
-  
-}
-.myButtons {
-  display:flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin-bottom: 25px;
-}
-ul::-webkit-scrollbar {
-  width: 15px;
-  height:10px;
-}
-
-ul::-webkit-scrollbar-track {
-  background-color: var(--my-pink);
-}
-
-ul::-webkit-scrollbar-thumb {
-  background-color:var(--my-darkPink) ;
-  border-radius: 20px;
-  border: 3px solid var(--my-darkPink);
-}
-
-.selectionForm > * {
-
-  width:400px
-
-}
-
-select, input {
-  width:85%;
-}
-
-
-.forcastList >li {
-  border: 1px solid var(--my-pink);
-  width:65px;
-  font-size: 0.7rem;
-  text-align: center;
-  margin-left:2px;
-  border-radius: 2px;
-  box-shadow: 1px 5px var(--my-pink);
-}
-
 .myButton, .myInput {
   background-color: white;
   color:var(--my-darkPink);
@@ -113,12 +56,77 @@ select, input {
   width:15%;
   
 }
-
-h1, h2 {
-  text-align: center;
-  font-weight: 100;
-  color:black
+.myButtons {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
 }
+.currentWeather {
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly !important;
+  width:100%;
+  list-style: none;
+}
+.forcastList {
+  margin:0px;
+  padding-left:0px;
+  
+  padding-bottom:16px;
+  list-style: none;
+  display:flex;
+  overflow-x:auto;
+  
+
+}
+ul::-webkit-scrollbar {
+  width: 15px;
+  height:10px;
+}
+
+ul::-webkit-scrollbar-track {
+  background-color: var(--my-pink);
+}
+
+ul::-webkit-scrollbar-thumb {
+  background-color:var(--my-darkPink) ;
+  border-radius: 20px;
+  border: 3px solid var(--my-darkPink);
+}
+
+.selectionForm > * {
+
+  width:400px
+
+}
+
+select, input {
+  width:85%;
+  
+}
+/*styling drodown list*/
+select {
+  border: 2px solid var(--my-pink);
+  border-radius: 5px;
+}
+/*no scroll bar for select list*/
+.noscrollBar::-webkit-scrollbar {
+  display: none;
+}
+/*styling forecast*/
+
+.forcastList >li {
+  border: 1px solid var(--my-pink);
+  width:65px;
+  font-size: 0.7rem;
+  text-align: center;
+  margin-left:2px;
+  border-radius: 2px;
+  box-shadow: 1px 5px var(--my-pink);
+}
+
 .forcast  h2 {
   margin-top:0;
 }
@@ -133,7 +141,6 @@ h1, h2 {
     align-content: center;
     text-align: center;
     flex-wrap:nowrap;
-   
   }
   .app {
     flex-direction: column;

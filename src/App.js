@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-
+import axios from 'axios'
 import Weather from './components/Weather'
 import Forecast from './components/Forecast'
 import ToggleUnits from './components/ToggleUnits'
@@ -37,10 +37,10 @@ const App = () => {
   
   useEffect(() => {
    if (isMounted){
-    fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${APIkey}`)
-      .then(response => response.json())
-      .then(data => {
-        setLocations(data);
+    axios
+    .get(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${APIkey}`)
+      .then(response => {
+        setLocations(response.data)
         console.log(locations);
       })
       .catch(error => {

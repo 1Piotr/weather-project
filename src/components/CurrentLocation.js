@@ -11,11 +11,13 @@ const CurrentLocation = ({onCoordinatesChange, onLocalNameChange, APIkey}) => {
             axios
               .get(`https://api.openweathermap.org/geo/1.0/reverse?lat=${localCoordiantes[0]}&lon=${localCoordiantes[1]}&limit=1&appid=${APIkey}`)
               .then(response => {
-                setLocalName()
+                setLocalName([response.data[0].name, response.data[0].country])
               console.log(response.data[0])
-              onLocalNameChange([response.data[0].name ,response.data[0].country] )
+              onLocalNameChange([response.data[0].name, response.data[0].country] )
               
-            })}
+            })
+            .catch(error => {
+                console.error(error)})}
             else {
                 setIsmounted(true);
               }
