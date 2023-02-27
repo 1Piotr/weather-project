@@ -22,11 +22,11 @@
   flex-wrap: nowrap;
   color:black;
   width:100vw;
-  max-height:60vh;
+  
   
 }
 .forcast{
-  max-height:40vh;
+ 
 }
 .currentWeather {
   display:flex;
@@ -132,6 +132,11 @@ h1, h2 {
     flex-direction: column;
     align-content: center;
     text-align: center;
+   
+  }
+  .app {
+    flex-direction: column;
+    align-content: center;
   }
   .currentWeather >* {
     padding:0;
