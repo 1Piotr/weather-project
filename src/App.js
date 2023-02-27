@@ -36,7 +36,7 @@ const App = () => {
   const APIkey ='d2c51efb1a6ca0dbf4e522543600e2a3'
   
   useEffect(() => {
-    if (isMounted) {
+   if (isMounted){
     fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${APIkey}`)
       .then(response => response.json())
       .then(data => {
@@ -49,7 +49,8 @@ const App = () => {
       else {
         setIsmounted(true)
       }
-  }, [city]);
+  } 
+  , [city]);
 // i want the list of options to automatically open
    
   
