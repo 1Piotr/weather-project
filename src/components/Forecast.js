@@ -23,8 +23,9 @@ const formatHour = (date) => new Date(date).toLocaleString('en-GB', optionsHour)
       .then(response => {
         console.log(response.data.list)
         setForecast(response.data.list)
-      
       })
+      .catch(error => {
+        console.error(error)})
        }, [coordinates, unit])
 
 
