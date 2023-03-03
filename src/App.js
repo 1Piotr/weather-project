@@ -33,7 +33,7 @@ const App = () => {
     setGeoname(localName)
   }
 
-  const APIkey ='d2c51efb1a6ca0dbf4e522543600e2a3'
+  const APIkey =process.env.REACT_APP_API_KEY;
   
   useEffect(() => {
    if (isMounted){
