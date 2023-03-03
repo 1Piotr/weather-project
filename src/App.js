@@ -38,7 +38,7 @@ const App = () => {
   useEffect(() => {
    if (isMounted){
     axios
-    .get(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${APIkey}`)
+    .get(`https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${process.env.REACT_APP_API_KEY}`)
       .then(response => {
         setLocations(response.data)
         console.log(locations);
