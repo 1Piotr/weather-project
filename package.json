@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "REACT_APP_API_KEY=d2c51efb1a6ca0dbf4e522543600e2a3 react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
